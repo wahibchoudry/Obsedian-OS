@@ -1,0 +1,46 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  padding: 20px;
+  text-align: center;
+}
+
+.container {
+  max-width: 800px;
+  margin: auto;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+input, select, button {
+  padding: 10px;
+  margin: 5px;
+  font-size: 16px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th, td {
+  border: 1px solid #aaa;
+  padding: 8px;
+  text-align: center;
+}
+
+.animate-row {
+  animation: fadeIn 0.5s ease-in;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+.stats {
+  margin-top: 20px;
+  font-weight: bold;
+}

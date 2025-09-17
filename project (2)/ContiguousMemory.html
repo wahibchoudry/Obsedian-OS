@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Contiguous Memory Allocation</title>
+  <link rel="stylesheet" href="ContiguousMemory.css" />
+</head>
+<body>
+  <div class="contiguous-container">
+    <h3>Contiguous Memory Allocation</h3>
+
+    <!-- Selection for Partitioning Type -->
+    <div class="memory-controls">
+      <label for="partitioningType">Select Partitioning:</label>
+      <select id="partitioningType" onchange="switchPartitioningType()">
+        <option value="fixed">Fixed Size Partitioning</option>
+        <option value="variable">Variable Size Partitioning</option>
+      </select>
+    </div>
+
+    <!-- Fixed Size Partitioning Panel -->
+   <div id="fixed-panel">
+  <h3>Fixed Partitioning</h3>
+ <label for="fixed-strategy">Select Strategy:</label>
+  <select id="fixed-strategy">
+    <option value="first">First Fit</option>
+    <option value="best">Best Fit</option>
+    <option value="worst">Worst Fit</option>
+  </select>
+  <input type="number" id="block-size" placeholder="Total Memory Size (MB)">
+  <button onclick="initializeBlock()">Create Block</button>
+  <input type="number" id="custom-block-size" placeholder="Enter block size">
+<button onclick="createBlock()">Create Block</button>
+
+
+  <br><br>
+
+  <input type="number" id="process-size-fixed" placeholder="Enter Process Size (MB)">
+<button onclick="allocateFixedWithStrategy()">Allocate</button>
+
+  <button onclick="resetFixedBlock()">Reset</button>
+
+ 
+
+  <div id="fixed-notify" class="notification"></div>
+  <div class="fixed-container">
+  <div id="fixed-memory-visual" class="fixed-memory-row"></div>
+
+</div>
+</div>
+
+
+    <!-- Variable Size Partitioning Panel -->
+    <div id="variable-panel" style="display: none;">
+        <input type="number" id="variable-total" placeholder="Total Memory Size (MB)">
+<button onclick="initVariableMemory()">Initialize Memory</button>
+
+      <h3>Variable Partitioning</h3>
+
+      
+
+      <!-- Input and Buttons -->
+      <div style="margin-top: 1rem;">
+        <input type="text" id="variable-process-id" placeholder="Process ID" />
+<input type="number" id="variable-process-size" placeholder="Process Size (MB)" />
+
+        <button onclick="allocateVariableMemory()">Allocate</button>
+        <button onclick="resetVariableMemory()">Reset</button>
+      </div>
+<div class="memory-block-outer" id="variable-visual"></div>
+
+      <div id="variable-message" class="notification"></div>
+      <div id="variable-visual" style="display: flex; gap: 4px; flex-wrap: wrap; margin-top: 1rem;"></div>
+    </div>
+ 
+
+  </div>
+
+  <script src="ContiguousMemory.js"></script>
+</body>
+</html>

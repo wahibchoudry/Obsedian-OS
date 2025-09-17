@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Memory Management - OS Simulation</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 2rem;
+      background-color: #1e1e1e;
+      color: #fff;
+    }
+
+    h2 {
+      text-align: center;
+      color: #00ffff;
+    }
+
+    #controls {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    input[type="number"] {
+      padding: 10px;
+      width: 200px;
+      font-size: 14px;
+      border: 1px solid #00ffff;
+      border-radius: 5px;
+      background-color: #2a2a2a;
+      color: #fff;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #00ffff;
+      border: none;
+      color: #000;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #00cccc;
+    }
+
+    #memory-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .memory-block {
+      width: 100px;
+      height: 50px;
+      border: 2px solid #00ffff;
+      background-color: #444;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      border-radius: 4px;
+    }
+
+    .used {
+      background-color: #00ff00;
+      color: #000;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Contiguous Memory Management
+  </h2>
+
+  <div>
+    <input type="number" id="process-size" placeholder="Enter Process Size">
+    <button onclick="allocateMemory()">Allocate</button>
+    <button onclick="resetMemory()">Reset</button>
+  </div>
+
+  <div id="memory-container"></div>
+
+  <script src="MemoryManagement.js"></script>
+</body>
+</html>

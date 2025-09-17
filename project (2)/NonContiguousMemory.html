@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Non-Contiguous Memory</title>
+  <link rel="stylesheet" href="NonContiguousMemory.css" />
+</head>
+<body>
+  <div class="main-container">
+  <h2>Paging Memory Management</h2>
+  <div class="controls">
+    <input id="total-memory" placeholder="Total Memory Size (MB)" />
+    <input id="page-size" placeholder="Page Size (MB)" />
+    <button onclick="initializePaging()">Initialize Memory</button><br>
+    <input id="process-id" placeholder="Process ID" />
+    <input id="process-size" placeholder="Process Size (MB)" />
+    <button onclick="allocateProcess()">Allocate Process</button>
+    <button onclick="deallocateProcess()">Deallocate Process</button>
+  </div>
+  <div id="paging-message" class="message"></div>
+
+  <h3>Logical to Physical Address Translation</h3>
+  <input id="logical-address" placeholder="Enter Logical Address" />
+  <button onclick="translateAddress()">Translate</button>
+  <div id="translation-result" class="output-box"></div>
+
+  <h3>Deallocate Page</h3>
+  <input id="dealloc-process-id" placeholder="Process ID" />
+  <input id="page-to-remove" placeholder="Enter Page Number" />
+  <button onclick="deallocatePage()">Remove Page</button>
+  <div id="deallocation-result" class="message"></div>
+
+  <h3>Page Tables</h3>
+  <div id="page-tables"></div>
+
+  <h3>Physical Memory (Frames)</h3>
+  <div id="frame-visual"></div>
+</div>
+  <script src="NonContiguousMemory.js"></script>
+</body>
+</html>

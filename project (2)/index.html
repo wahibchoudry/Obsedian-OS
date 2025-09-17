@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>MyOS - Operating System Simulator</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <div class="container">
+    <div id="sidebar">
+      <h2>Obsedian OS</h2>
+      <button onclick="showSection('process')">Process Management</button>
+      <button onclick="showSection('memory')">Memory Management</button>
+      <button onclick="showSection('io')">I/O Management</button>
+      <button onclick="showSection('sync')">Other Operation.</button>
+
+    </div>
+
+    <div id="process-panel" class="section">
+      <h3>Process Management</h3>
+
+      <div>
+        <label for="scheduler-select">Scheduling Algorithm:</label>
+        <select id="scheduler-select">
+          <option value="fcfs">FCFS</option>
+          <option value="rr">Round Robin</option>
+          <option value="sjf">Shortest Job First (Non-Preemptive)</option>
+          <option value="PriorityP">Priority (Preemptive)</option>
+
+        </select>
+        <input type="number" id="time-quantum" placeholder="Time Quantum (RR)" style="width: 180px; display: none;" />
+
+        <button onclick="runScheduler()">Run Scheduler</button>
+      </div>
+      <div>
+        <button onclick="dispatchProcess()">Dispatch</button>
+        <button onclick="blockProcess()">Block</button>
+        <button onclick="wakeupProcess()">Wakeup</button>
+        <button onclick="changePriority()">Change Priority</button>
+        <button onclick="resetAllProcesses()">Reset</button>
+      </div>
+      <div id="queues-view" style="margin-top: 1rem;">
+        <strong>Ready Queue:</strong> <span id="ready-queue"></span><br />
+        <strong>Blocked Queue:</strong> <span id="blocked-queue"></span><br />
+        <strong>Running:</strong> <span id="running-process"></span>
+      </div>
+      <div style="margin-top: 2rem;">
+        <h4>Gantt Chart</h4>
+        <div id="gantt-chart" style="display: flex; flex-wrap: wrap; gap: 5px;"></div>
+        <div id="process-metrics" style="margin-top: 2rem;"></div>
+
+      </div>
+      <div>
+        <input type="text" id="proc-name" placeholder="Process Name" />
+        <input type="number" id="proc-priority" placeholder="Priority" />
+        <label for="processId">Process ID:</label>
+        <input type="text" id="processId" required>
+
+        <label for="burstTime">Burst Time:</label>
+        <input type="number" id="burstTime" required>
+
+        <label for="arrivalTime">Arrival Time:</label>
+        <input type="number" id="arrivalTime" required>
+
+        <button onclick="createProcess()">Create</button>
+        <button onclick="suspendProcess()">Suspend</button>
+        <button onclick="resumeProcess()">Resume</button>
+        <button onclick="terminateProcess()">Terminate</button>
+      </div>
+      <div class="notification" id="proc-notification"></div>
+      <table class="table" id="process-table">
+        <thead>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Priority</th>
+    <th>Status</th>
+    <th>Process ID</th>
+    <th>Burst Time</th>
+    <th>Arrival Time</th>
+  </tr>
+</thead>
+ 
+        <tbody></tbody>
+      </table>
+    </div>
+    <div id="memory-panel" class="section">
+      <h3>Memory Management</h3>
+      <button onclick="location.href='memory/MemoryMenu.html'">Open Memory Menu</button>
+    </div>
+
+
+    <div id="io-panel" class="section">
+      <h3>I/O Management</h3>
+      <div>
+        <button onclick="location.href='memory/IOManagement.html'">Open I/O Menu</button>
+      </div>
+    </div>
+
+    <div id="sync-panel" class="section" style="display:none;">
+      <h3>Semaphore Synchronization (Binary)</h3>
+
+      <div class="sem-form">
+        <input type="text" id="sem-proc-id" placeholder="Enter Process ID" />
+        <button onclick="enterCritical()">Enter Critical Section</button>
+        <button onclick="leaveCritical()">Leave Critical Section</button>
+      </div>
+
+      <div class="sem-container">
+        <div class="sem-section">
+          <h4>🟢 Critical Section</h4>
+          <div id="critical-section-box" class="sem-box"></div>
+        </div>
+
+        <div class="sem-section">
+          <h4>⏳ Waiting Queue</h4>
+          <ul id="waiting-list" class="sem-list"></ul>
+        </div>
+
+        <div class="sem-section">
+          <h4>📋 All Processes</h4>
+          <ul id="all-processes" class="sem-list"></ul>
+        </div>
+      </div>
+
+      <div id="sem-status" class="sem-log"></div>
+    </div>
+
+
+    <script src="js/app.js"></script>
+    <script src="js/process.js"></script>
+    <script src="js/semaphore.js"></script>
+
+</body>
+
+</html>

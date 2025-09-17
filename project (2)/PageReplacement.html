@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Page Replacement Scheduling</title>
+  <link rel="stylesheet" href="PageReplacement.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Page Replacement Scheduling</h2>
+    <label for="strategy">Strategy:</label>
+    <select id="strategy">
+      <option value="FIFO">FIFO</option>
+      <option value="LRU">LRU</option>
+      <option value="MRU">MRU</option>
+  <option value="Optimal">Optimal</option>
+    </select>
+    <input id="referenceString" placeholder="e.g. 1,2,3,2,1,4,5" />
+    <input id="frameCount" type="number" placeholder="No. of Frames" />
+    <button onclick="startSimulation()">Simulate</button>
+
+    <div id="table-container">
+      <table id="resultTable">
+        <thead>
+          <tr>
+            <th>Step</th>
+            <th>Page</th>
+            <th>Frames</th>
+            <th>Result</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+    <div class="stats" id="stats"></div>
+    <button onclick="location.href='MemoryMenu.html'">⬅ Back to Memory Menu</button>
+  </div>
+  <script src="PageReplacement.js"></script>
+</body>
+</html>

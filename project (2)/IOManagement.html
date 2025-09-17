@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>I/O Management</title>
+  <link rel="stylesheet" href="IOManagement.css">
+</head>
+<body>
+  <div class="io-container">
+    <h2>I/O Management Simulator</h2>
+    <input type="text" id="io-proc-id" placeholder="Process ID" />
+<input type="text" id="io-device" placeholder="Device" />
+<button onclick="requestIO()">Request I/O</button>
+<div id="io-log" class="io-log"></div>
+
+    <button onclick="startProcess()">Start Process</button>
+    <button onclick="runProcess()">Dispatch to CPU</button>
+
+    <button onclick="triggerIO()">Trigger I/O</button>
+    <button onclick="completeIO()">Complete I/O</button>
+    <div class="state-display">
+      <h3>Current State: <span id="current-state">New</span></h3>
+    </div>
+    <div class="timeline" id="timeline"></div>
+  </div>
+  <script src="IOManagement.js"></script>
+</body>
+</html>
